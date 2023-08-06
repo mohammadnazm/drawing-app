@@ -6,6 +6,7 @@ export function useOnDraw() {
   function setCanvasRef(ref) {
     if (!ref) return
     canvasRef.current = ref
+    initMouseMoveListener()
   }
 
   function initMouseMoveListener() {
