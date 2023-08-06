@@ -17,10 +17,14 @@ export function useOnDraw() {
   }
 
   function computePointInCanvas(clientX, clientY) {
-    const boundingRect = canvasRef.current.getBoundingClientRect()
-    return {
-      x: clientX - boundingRect.left,
-      y: clientY - boundingRect.top,
+    if (canvasRef.current) {
+      const boundingRect = canvasRef.current.getBoundingClientRect()
+      return {
+        x: clientX - boundingRect.left,
+        y: clientY - boundingRect.top,
+      }
+    } else {
+      return null
     }
   }
 
