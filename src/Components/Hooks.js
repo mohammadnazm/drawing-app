@@ -14,7 +14,6 @@ export function useOnDraw(onDraw) {
       const point = computePointInCanvas(e.clientX, e.clientY)
       const ctx = canvasRef.current.getContext("2d")
       if (onDraw) onDraw(ctx, point)
-      console.log(point)
     }
     window.addEventListener("mousemove", mouseMoveListener)
   }
