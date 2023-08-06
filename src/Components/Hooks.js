@@ -5,11 +5,16 @@ export function useOnDraw(onDraw) {
 
   const isDrawingRef = useRef(false)
 
+  const mouseMoveListenerRef = useRef(null)
+  const mouseDownListenerRef = useRef(null)
+  const mouseUpListenerRef = useRef(null)
+
   function setCanvasRef(ref) {
     if (!ref) return
     canvasRef.current = ref
     initMouseMoveListener()
     initMouseDownListener()
+    initMouseUpListener()
   }
 
   function initMouseMoveListener() {
