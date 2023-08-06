@@ -16,5 +16,13 @@ export function useOnDraw() {
     window.addEventListener("mousemove", mouseMoveListener)
   }
 
+  function computePointInCanvas(clientX, clientY) {
+    const boundingRect = canvasRef.current.getBoundingClientRect()
+    return {
+      x: clientX - boundingRect.left,
+      y: clientY - boundingRect.top,
+    }
+  }
+
   return setCanvasRef
 }
