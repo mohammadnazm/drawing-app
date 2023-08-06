@@ -2,12 +2,15 @@ import React from "react"
 import { useOnDraw } from "./Hooks"
 
 const Canvas = ({ width, height }) => {
-  const setCanvasRef = useOnDraw()
+  const setCanvasRef = useOnDraw(onDraw)
 
   function onDraw(ctx, point) {
+    ctx.fillStyle = "#000000"
     ctx.beginPath()
-    ctx.art()
+    ctx.arc(point.x, point.y, 2, 0, 2 * Math.PI)
+    ctx.fill()
   }
+
   return (
     <canvas
       width={width}
