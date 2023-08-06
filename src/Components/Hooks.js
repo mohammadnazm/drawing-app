@@ -9,6 +9,7 @@ export function useOnDraw(onDraw) {
     if (!ref) return
     canvasRef.current = ref
     initMouseMoveListener()
+    initMouseDownListener()
   }
 
   function initMouseMoveListener() {
@@ -24,6 +25,7 @@ export function useOnDraw(onDraw) {
   }
 
   function initMouseDownListener() {
+    if (!canvasRef.current) return
     const listener = () => {
       isDrawingRef.current = true
     }
