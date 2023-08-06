@@ -11,7 +11,8 @@ export function useOnDraw() {
 
   function initMouseMoveListener() {
     const mouseMoveListener = e => {
-      console.log({ x: e.clientX, y: e.clientY })
+      const point = computePointInCanvas(e.clientX, e.clientY)
+      console.log(point)
     }
     window.addEventListener("mousemove", mouseMoveListener)
   }
