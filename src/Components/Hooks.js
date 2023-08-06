@@ -7,4 +7,6 @@ export function useOnDraw() {
     if (!ref) return
     canvasRef.current = ref
   }
+
+  return setCanvasRef
 }
