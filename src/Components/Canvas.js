@@ -7,5 +7,5 @@ const Canvas = () => {
 export default Canvas
 
 const canvasStyle = {
-    border: "1px solid black";
+  border: "1px solid black",
 }
