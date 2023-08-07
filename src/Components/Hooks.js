@@ -23,11 +23,12 @@ export function useOnDraw(onDraw) {
 
   function setCanvasRef(ref) {
     if (!ref) return
-    canvasRef.current.removeEventListener(
-      "mousedown",
-      mouseDownListenerRef.current
-    )
-
+    if (canvasRef.current) {
+      canvasRef.current.removeEventListener(
+        "mousedown",
+        mouseDownListenerRef.current
+      )
+    }
     canvasRef.current = ref
     initMouseMoveListener()
     initMouseDownListener()
