@@ -11,6 +11,12 @@ const Canvas = ({ width, height }) => {
     ctx.fill()
   }
 
+  function drawLine(start, end, ctx, color, width) {
+    ctx.beginPath()
+    ctx.lineWidth = width
+    ctx.strokeStyle = color
+  }
+
   return (
     <canvas
       width={width}
