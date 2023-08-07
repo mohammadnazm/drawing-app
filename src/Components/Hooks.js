@@ -26,6 +26,7 @@ export function useOnDraw(onDraw) {
         console.log(point)
       }
     }
+    mouseMoveListenerRef.current = mouseMoveListener
     window.addEventListener("mousemove", mouseMoveListener)
   }
 
@@ -33,6 +34,7 @@ export function useOnDraw(onDraw) {
     const listener = () => {
       isDrawingRef.current = false
     }
+    mouseUpListenerRef.current = listener
     window.addEventListener = ("mouseup", listener)
   }
 
@@ -41,6 +43,7 @@ export function useOnDraw(onDraw) {
     const listener = () => {
       isDrawingRef.current = true
     }
+    mouseDownListenerRef.current = listener
     canvasRef.current.addEventListener("mousedown", listener)
   }
 
