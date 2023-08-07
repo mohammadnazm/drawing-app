@@ -19,7 +19,7 @@ export function useOnDraw(onDraw) {
         window.removeEventListener("mouseup", mouseMoveListenerRef.current)
       }
     }
-  })
+  }, [])
 
   function setCanvasRef(ref) {
     if (!ref) return
