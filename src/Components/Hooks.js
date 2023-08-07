@@ -1,4 +1,4 @@
-import { useRef } from "react"
+import { useEffect, useRef } from "react"
 
 export function useOnDraw(onDraw) {
   const canvasRef = useRef(null)
@@ -9,8 +9,25 @@ export function useOnDraw(onDraw) {
   const mouseDownListenerRef = useRef(null)
   const mouseUpListenerRef = useRef(null)
 
+  useEffect(() => {
+    // when component un mounted
+    return () => {
+      if (mouseMoveListenerRef.current) {
+        window.removeEventListener("mousemove", mouseMoveListenerRef.current)
+      }
+      if (mouseUpListenerRef.current) {
+        window.removeEventListener("mouseup", mouseMoveListenerRef.current)
+      }
+    }
+  })
+
   function setCanvasRef(ref) {
     if (!ref) return
+    canvasRef.current.removeEventListener(
+      "mousedown",
+      mouseDownListenerRef.current
+    )
+
     canvasRef.current = ref
     initMouseMoveListener()
     initMouseDownListener()
